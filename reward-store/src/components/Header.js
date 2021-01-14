@@ -1,7 +1,7 @@
 import React from 'react';
-import Kite from './assets/aerolab-logo.svg';
-import Coin from './assets/icons/coin.svg';
-import Hero from './assets/header-x1.png';
+import Kite from '../assets/aerolab-logo.svg';
+import Coin from '../assets/icons/coin.svg';
+import Hero from '../assets/header-x1.png';
 
 const Header = () => {
 	return (
