@@ -5,7 +5,7 @@ import Hero from '../assets/header-x1.png';
 
 const Header = () => {
 	return (
-		<div>
+		<div className="header">
 			<div className="header_info_container">
 				<img src={Kite} alt="aerolab-logo" />
 				<div className="header_user_container">

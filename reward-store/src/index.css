@@ -2,6 +2,10 @@ body {
 	margin: 0;
 }
 
+.header {
+	background-color: #f9f9f9;
+}
+
 .header_info_container {
 	display: grid;
 	grid-template-columns: 4fr 0.9fr;
@@ -34,46 +38,135 @@ body {
 }
 
 .header_hero_container {
-	position: relative;
-	display: inline-block;
-	text-align: center;
 	height: 300px;
 }
 
 .header_hero_img {
+	object-fit: cover;
 	width: 100%;
-	height: auto;
+	min-width: 665px;
+	height: 300px;
 }
 
 .header_hero_text {
-	position: absolute;
-	top: 300px;
-	left: 80px;
+	position: relative;
+	bottom: 70px;
+	left: 60px;
 	color: white;
 	font-family: sans-serif;
 	font-size: 40px;
 }
 
-.item_container {
-	width: 270px;
-	height: 270px;
-	border: black 1px solid;
-	position: relative;
-	border-radius: 10px;
-	margin: 10px;
+.main_container {
+	background-color: #f9f9f9;
+	padding: 0px 70px;
 }
 
-.item_img {
+.filters_container {
+	display: flex;
+	height: 50px;
+	align-items: center;
+	font-family: sans-serif;
+	font-size: 15px;
+	padding-top: 30px;
+}
+
+.filters_products {
+	margin: 0px 8px;
+	padding-right: 10px;
+	color: #616161;
+}
+
+.separator_products {
+	border-left: 1px solid #8a8a8a;
+	height: 30px;
+}
+
+.filters_sort {
+	margin: 0px 10px 0px 15px;
+	color: #a3a3a3;
+}
+
+.filters_sort_recent,
+.filters_sort_lowest,
+.filters_sort_highest {
+	padding: 10px 15px;
+	border-radius: 25px;
+	margin: 0px 10px;
+	background-color: #ededed;
+	color: #a3a3a3;
+}
+
+.filters_sort_recent:hover,
+.filters_sort_lowest:hover,
+.filters_sort_highest:hover {
+	padding: 10px 15px;
+	border-radius: 25px;
+	background-color: #0ad4fa;
+	color: white;
+}
+
+.arrow {
+	position: absolute;
+	right: 5%;
+}
+
+.arrow:hover {
+	transition: all 0.5s ease;
+	transform: scale(1.2);
+}
+
+.separator_filter {
+	color: #616161;
+	min-width: 420px;
+	margin-bottom: 25px;
+}
+
+.item_container {
+	width: 250px;
+	height: 250px;
+	border-radius: 10px;
+	margin: 10px;
+	background-color: white;
+	box-shadow: 3px 3px 3px gray;
+}
+
+.item_container:hover {
+	transition: all 0.5s ease;
+	transform: scale(1.03);
+	box-shadow: 6px 6px 6px gray;
 }
 
 .item_button {
-	position: absolute;
+	position: relative;
 	top: 10px;
-	left: 218px;
+	left: 195px;
+}
+
+.item_img_container {
+	display: flex;
+	justify-content: center;
+}
+
+.item_img {
+	width: 180px;
+	height: auto;
+}
+
+.separator_item {
+	width: 200px;
+	color: #d9d9d9;
+}
+
+.item_info {
+	margin: 0 10px;
+	font-family: sans-serif;
 }
 
 .item_category {
+	color: #a3a3a3;
 }
 
 .item_name {
+	color: #616161;
 }
