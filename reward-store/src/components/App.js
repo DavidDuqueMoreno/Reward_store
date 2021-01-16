@@ -8,8 +8,9 @@ import Main from './Main';
 
 const App = () => (
 	<BrowserRouter>
-		<Header />
 		<div>
+			<Route exact path="/" component={Header} />
+			<Route exact path="/2" component={Header} />
 			<Route exact path="/" component={Main} />
 			<Route exact path="/2" component={Main} />
 		</div>

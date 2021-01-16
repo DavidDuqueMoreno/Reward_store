@@ -1,7 +1,10 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import ArrowRight from '../assets/icons/arrow-right.svg';
+import ArrowLeft from '../assets/icons/arrow-left.svg';
+
 import BuyIcon from '../assets/icons/buy-blue.svg';
+import { Link } from 'react-router-dom';
 
 const Main = () => {
 	const config = {
@@ -29,39 +32,103 @@ const Main = () => {
 			setProducts(products.slice(0, 16));
 		}
 		if (window.location.pathname === '/2') {
-			setProducts(products.slice(17, 32));
+			setProducts(products.slice(16, 32));
 		}
 	}
-	console.log(products);
+	const Arrow = () => {
+		if (window.location.pathname === '/') {
+			return (
+				<Link to="/2">
+					<img src={ArrowRight} alt="" />
+				</Link>
+			);
+		}
+		if (window.location.pathname === '/2') {
+			return (
+				<Link to="/">
+					<img src={ArrowLeft} alt="" />
+				</Link>
+			);
+		}
+	};
+
+	const SortByCategory = () => {
+		const order = {
+			Audio: 1,
+			Cameras: 2,
+			Drones: 3,
+			Gaming: 4,
+			Laptops: 5,
+			'Monitors & TV': 6,
+			'PC Accesories': 7,
+			'PC Accessories': 8,
+			'Phone Accessories': 9,
+			Phones: 10,
+			'Smart Home': 11,
+			'Tablets & E-readers': 12,
+		};
+		setProducts(products.sort((a, b) => order[a.category] - order[b.category]));
+		console.log(products);
+	};
+
+	const SortByLowestPrice = () => {
+		setProducts(products.sort((a, b) => a.cost - b.cost));
+		console.log(products);
+	};
+
+	const SortByHighestPrice = () => {
+		setProducts(products.sort((a, b) => b.cost - a.cost));
+		console.log(products);
+	};
 
 	const mainFilters = () => (
 		<div>
 			<div className="filters_container">
-				<div className="filters_products">16 of 32 products</div>
+				<div className="filters_products">
+					{window.location.pathname === '/'
+						? '16 of 32 products'
+						: '32 of 32 products'}
+				</div>
 				<div className="separator_products"></div>
 				<div className="filters_sort">Sort by:</div>
-				<div className="filters_sort_recent">Most recent</div>
-				<div className="filters_sort_lowest">Lowest price</div>
-				<div onClick={() => msg()} className="filters_sort_highest">
-					Highest price
-				</div>
+				<Link>
+					<button
+						className="filters_sort_category"
+						onClick={() => SortByCategory()}
+					>
+						Category
+					</button>
+				</Link>
+				<Link>
+					<button
+						className="filters_sort_lowest"
+						onClick={() => SortByLowestPrice()}
+					>
+						Lowest price
+					</button>
+				</Link>
+				<Link>
+					<button
+						className="filters_sort_highest"
+						onClick={() => SortByHighestPrice()}
+					>
+						Highest price
+					</button>
+				</Link>
+
 				<div className="arrow">
-					<img onClick={msg} src={ArrowRight} alt="" />
+					<Arrow />
 				</div>
 			</div>
 			<hr className="separator_filter" />
 		</div>
 	);
 
-	const msg = () => {
-		alert('oelo');
-	};
-
 	const mainItem = () =>
 		products.map((prod) => (
 			<div key={prod._id} className="item_container">
 				<div className="item_button">
-					<img onClick={msg} src={BuyIcon} alt="" />
+					<img className="buy_img" alt="" />
 				</div>
 				<div className="item_img_container">
 					<img

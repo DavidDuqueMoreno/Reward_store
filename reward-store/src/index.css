@@ -92,7 +92,7 @@ body {
 	color: #a3a3a3;
 }
 
-.filters_sort_recent,
+.filters_sort_category,
 .filters_sort_lowest,
 .filters_sort_highest {
 	padding: 10px 15px;
@@ -100,15 +100,23 @@ body {
 	margin: 0px 10px;
 	background-color: #ededed;
 	color: #a3a3a3;
+	border: none;
+	font-size: 15px;
 }
 
-.filters_sort_recent:hover,
+.filters_sort_category:hover,
 .filters_sort_lowest:hover,
 .filters_sort_highest:hover {
 	padding: 10px 15px;
 	border-radius: 25px;
 	background-color: #0ad4fa;
 	color: white;
+}
+
+.filters_sort_category:focus,
+.filters_sort_lowest:focus,
+.filters_sort_highest:focus {
+	outline: none;
 }
 
 .arrow {
@@ -151,6 +159,14 @@ body {
 	position: relative;
 	top: 10px;
 	left: 195px;
+}
+
+.buy_img {
+	content: url('./assets/icons/buy-blue.svg');
+}
+
+.buy_img:hover {
+	content: url('./assets/icons/buy-white.svg');
 }
 
 .item_img_container {
