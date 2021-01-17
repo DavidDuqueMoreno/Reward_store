@@ -5,6 +5,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 import Header from './Header';
 import Main from './Main';
+import 'semantic-ui-css/semantic.min.css';
 
 const App = () => (
 	<BrowserRouter>

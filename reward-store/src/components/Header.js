@@ -1,17 +1,38 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Kite from '../assets/aerolab-logo.svg';
 import Coin from '../assets/icons/coin.svg';
 import Hero from '../assets/header-x1.png';
+import axios from 'axios';
 
 const Header = () => {
+	const config = {
+		headers: {
+			'Content-type': 'application/json',
+			Authorization:
+				'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDAwZDllMzliNjk4OTAwMTlmNGI3NTMiLCJpYXQiOjE2MTA2Njg1MTV9.DJIRAx-_7ynGRqnK2GVur1VKCpj7i-kLB43IbuN-7g0',
+		},
+	};
+	const [user, setUser] = useState([]);
+
+	useEffect(() => {
+		axios
+			.get('https://coding-challenge-api.aerolab.co/user/me', config)
+			.then((res) => {
+				setUser(res.data);
+			})
+			.catch((error) => {
+				console.error(error);
+			});
+	}, []);
+
 	return (
 		<div className="header">
 			<div className="header_info_container">
 				<img src={Kite} alt="aerolab-logo" />
 				<div className="header_user_container">
-					<div className="header_user_name">David Duque</div>
+					<div className="header_user_name">{user.name}</div>
 					<div className="header_user_coins">
-						6000
+						{user.points}
 						<div className="coin_icon">
 							<img src={Coin} alt="coin icon" />
 						</div>

@@ -2,8 +2,8 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import ArrowRight from '../assets/icons/arrow-right.svg';
 import ArrowLeft from '../assets/icons/arrow-left.svg';
+import Coin from '../assets/icons/coin.svg';
 
-import BuyIcon from '../assets/icons/buy-blue.svg';
 import { Link } from 'react-router-dom';
 
 const Main = () => {
@@ -15,12 +15,21 @@ const Main = () => {
 		},
 	};
 	const [products, setProducts] = useState([]);
+	const [user, setUser] = useState([]);
 
 	useEffect(() => {
 		axios
 			.get('https://coding-challenge-api.aerolab.co/products', config)
 			.then((res) => {
 				setProducts(res.data);
+			})
+			.catch((error) => {
+				console.error(error);
+			});
+		axios
+			.get('https://coding-challenge-api.aerolab.co/user/me', config)
+			.then((res) => {
+				setUser(res.data);
 			})
 			.catch((error) => {
 				console.error(error);
@@ -68,17 +77,14 @@ const Main = () => {
 			'Tablets & E-readers': 12,
 		};
 		setProducts(products.sort((a, b) => order[a.category] - order[b.category]));
-		console.log(products);
 	};
 
 	const SortByLowestPrice = () => {
 		setProducts(products.sort((a, b) => a.cost - b.cost));
-		console.log(products);
 	};
 
 	const SortByHighestPrice = () => {
 		setProducts(products.sort((a, b) => b.cost - a.cost));
-		console.log(products);
 	};
 
 	const mainFilters = () => (
@@ -91,7 +97,7 @@ const Main = () => {
 				</div>
 				<div className="separator_products"></div>
 				<div className="filters_sort">Sort by:</div>
-				<Link>
+				<Link to={window.location.pathname}>
 					<button
 						className="filters_sort_category"
 						onClick={() => SortByCategory()}
@@ -99,7 +105,7 @@ const Main = () => {
 						Category
 					</button>
 				</Link>
-				<Link>
+				<Link to={window.location.pathname}>
 					<button
 						className="filters_sort_lowest"
 						onClick={() => SortByLowestPrice()}
@@ -107,7 +113,7 @@ const Main = () => {
 						Lowest price
 					</button>
 				</Link>
-				<Link>
+				<Link to={window.location.pathname}>
 					<button
 						className="filters_sort_highest"
 						onClick={() => SortByHighestPrice()}
@@ -124,12 +130,29 @@ const Main = () => {
 		</div>
 	);
 
+	const BuyIcon = () => (
+		<div className="item_button">
+			<img className="buy_img" alt="" />
+		</div>
+	);
+
+	const MissingMoney = (props) => (
+		<div className="item_missing_money">
+			You need {props.cost - user.points}
+			<div className="coin_icon">
+				<img src={Coin} alt="coin icon" />
+			</div>
+		</div>
+	);
+
 	const mainItem = () =>
 		products.map((prod) => (
 			<div key={prod._id} className="item_container">
-				<div className="item_button">
-					<img className="buy_img" alt="" />
-				</div>
+				{user.points < prod.cost ? (
+					<MissingMoney cost={prod.cost} />
+				) : (
+					<BuyIcon />
+				)}
 				<div className="item_img_container">
 					<img
 						className="item_img"

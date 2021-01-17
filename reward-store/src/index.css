@@ -1,5 +1,11 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
 body {
 	margin: 0;
+	background-color: #f9f9f9;
 }
 
 .header {
@@ -7,8 +13,7 @@ body {
 }
 
 .header_info_container {
-	display: grid;
-	grid-template-columns: 4fr 0.9fr;
+	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	height: 70px;
@@ -17,11 +22,13 @@ body {
 	color: rgb(104, 104, 104);
 }
 .header_user_container {
+	margin-left: auto;
 	display: flex;
 	align-items: center;
 }
 .header_user_name {
 	margin-right: 20px;
+	font-size: 20px;
 }
 .header_user_coins {
 	display: flex;
@@ -159,6 +166,19 @@ body {
 	position: relative;
 	top: 10px;
 	left: 195px;
+}
+
+.item_missing_money {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #656565;
+	padding: 0px 10px;
+	border-radius: 23px;
+	padding-right: 3px;
+	opacity: 0.7;
+	color: white;
+	margin: 10px 10px 0 90px;
 }
 
 .buy_img {
