@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Kite from '../assets/aerolab-logo.svg';
-import Coin from '../assets/icons/coin.svg';
 import Hero from '../assets/header-x1.png';
 import axios from 'axios';
+import GetCoins from './Modals/GetCoinsModal';
 
 const Header = () => {
 	const config = {
@@ -31,12 +31,7 @@ const Header = () => {
 				<img src={Kite} alt="aerolab-logo" />
 				<div className="header_user_container">
 					<div className="header_user_name">{user.name}</div>
-					<div className="header_user_coins">
-						{user.points}
-						<div className="coin_icon">
-							<img src={Coin} alt="coin icon" />
-						</div>
-					</div>
+					<GetCoins points={user.points} />
 				</div>
 			</div>
 			<div className="header_hero_container">

@@ -1,8 +1,4 @@
-body,
-.modal {
-	width: 100%;
-	height: 100%;
+.add_buttons {
 	display: flex;
 	justify-content: center;
-	align-items: center;
 }

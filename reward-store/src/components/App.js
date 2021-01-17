@@ -2,10 +2,9 @@ import React from 'react';
 import '../index.css';
 
 import { BrowserRouter, Route } from 'react-router-dom';
-
+import 'semantic-ui-css/semantic.min.css';
 import Header from './Header';
 import Main from './Main';
-import 'semantic-ui-css/semantic.min.css';
 
 const App = () => (
 	<BrowserRouter>
