@@ -1,10 +1,12 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
 import ArrowRight from '../assets/icons/arrow-right.svg';
 import ArrowLeft from '../assets/icons/arrow-left.svg';
 import Coin from '../assets/icons/coin.svg';
 
-import { Link } from 'react-router-dom';
+import RedeemModal from './Modals/RedeemModal';
 
 const Main = () => {
 	const config = {
@@ -130,12 +132,6 @@ const Main = () => {
 		</div>
 	);
 
-	const BuyIcon = () => (
-		<div className="item_button">
-			<img className="buy_img" alt="" />
-		</div>
-	);
-
 	const MissingMoney = (props) => (
 		<div className="item_missing_money">
 			You need {props.cost - user.points}
@@ -151,7 +147,7 @@ const Main = () => {
 				{user.points < prod.cost ? (
 					<MissingMoney cost={prod.cost} />
 				) : (
-					<BuyIcon />
+					<RedeemModal id={prod._id} cost={prod.cost} img={prod.img.url} />
 				)}
 				<div className="item_img_container">
 					<img

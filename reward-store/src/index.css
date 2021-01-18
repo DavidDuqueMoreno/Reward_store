@@ -151,7 +151,7 @@ body {
 	width: 250px;
 	height: 250px;
 	border-radius: 10px;
-	margin: 15px 15px 0 0;
+	margin: 0 15px 15px 0;
 	background-color: white;
 	box-shadow: 3px 3px 3px gray;
 }
@@ -219,4 +219,17 @@ body {
 
 .item_name {
 	color: #616161;
+}
+
+.add_buttons {
+	display: flex;
+	justify-content: center;
+}
+
+.added_points {
+	text-align: center;
+}
+
+.redeem {
+	text-align: center;
 }

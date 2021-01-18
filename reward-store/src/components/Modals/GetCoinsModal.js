@@ -2,9 +2,8 @@ import Coin from '../../assets/icons/coin.svg';
 import { Button, Header, Icon, Modal } from 'semantic-ui-react';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import './index.css';
 
-const GetCoins = (props) => {
+const GetCoins = () => {
 	const [points, setPoints] = useState([]);
 	const [addedPoints, setAddedPoints] = useState('');
 	const [open, setOpen] = useState(false);
@@ -53,7 +52,6 @@ const GetCoins = (props) => {
 		<Modal
 			size="tiny"
 			closeIcon
-			onOpen={() => setAddedPoints('')}
 			open={open}
 			trigger={
 				<div className="header_user_container">
