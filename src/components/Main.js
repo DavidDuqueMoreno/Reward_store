@@ -41,14 +41,15 @@ const Main = () => {
 			});
 	}, []);
 
-	if (products.length > 16) {
+	useEffect(() => {
 		if (page) {
 			setProducts(products.slice(0, 16));
 		}
 		if (!page) {
 			setProducts(products.slice(16, 32));
 		}
-	}
+	}, [page]);
+
 	const Arrow = () => {
 		if (page) {
 			return <img onClick={setPage(false)} src={ArrowRight} alt="" />;
