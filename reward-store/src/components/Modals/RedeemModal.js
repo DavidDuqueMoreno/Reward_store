@@ -1,9 +1,8 @@
 import { Header, Modal } from 'semantic-ui-react';
-import React, { useState, useReducer } from 'react';
+import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 
-const GetCoins = (props) => {
+const RedeemProduct = (props) => {
 	const [open, setOpen] = useState(false);
 	const [response, setResponse] = useState('');
 
@@ -55,4 +54,4 @@ const GetCoins = (props) => {
 	);
 };
 
-export default GetCoins;
+export default RedeemProduct;

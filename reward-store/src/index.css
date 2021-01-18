@@ -20,6 +20,7 @@ body {
 	margin-left: auto;
 	display: flex;
 	align-items: center;
+	font-size: 18px;
 }
 .header_user_name {
 	margin-right: 20px;
@@ -42,6 +43,36 @@ body {
 .coin_icon {
 	margin-left: 5px;
 	padding-top: 6px;
+}
+
+.header_history {
+	display: flex;
+	align-items: center;
+	background-color: rgb(219, 219, 219);
+	padding: 13px 10px;
+	border-radius: 23px;
+	cursor: pointer;
+	font-size: 18px;
+	margin-left: 10px;
+}
+
+.header_history:hover {
+	transition: all 0.5s ease;
+	transform: scale(1.03);
+	box-shadow: 3px 3px 3px gray;
+}
+
+.history_body {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.history_item {
+	width: 320px;
+
+	margin: 10px 0;
+	font-size: 20px;
 }
 
 .header_hero_container {
