@@ -1,0 +1,30 @@
+{
+  "files": {
+    "main.css": "/Reward_store/static/css/main.e8efdfac.chunk.css",
+    "main.js": "/Reward_store/static/js/main.7ad7aa81.chunk.js",
+    "main.js.map": "/Reward_store/static/js/main.7ad7aa81.chunk.js.map",
+    "runtime-main.js": "/Reward_store/static/js/runtime-main.12dfef04.js",
+    "runtime-main.js.map": "/Reward_store/static/js/runtime-main.12dfef04.js.map",
+    "static/css/2.dfea2494.chunk.css": "/Reward_store/static/css/2.dfea2494.chunk.css",
+    "static/js/2.4b99a15f.chunk.js": "/Reward_store/static/js/2.4b99a15f.chunk.js",
+    "static/js/2.4b99a15f.chunk.js.map": "/Reward_store/static/js/2.4b99a15f.chunk.js.map",
+    "index.html": "/Reward_store/index.html",
+    "static/css/2.dfea2494.chunk.css.map": "/Reward_store/static/css/2.dfea2494.chunk.css.map",
+    "static/css/main.e8efdfac.chunk.css.map": "/Reward_store/static/css/main.e8efdfac.chunk.css.map",
+    "static/js/2.4b99a15f.chunk.js.LICENSE.txt": "/Reward_store/static/js/2.4b99a15f.chunk.js.LICENSE.txt",
+    "static/media/aerolab-logo.0a8fb170.svg": "/Reward_store/static/media/aerolab-logo.0a8fb170.svg",
+    "static/media/arrow-left.e6eb9be1.svg": "/Reward_store/static/media/arrow-left.e6eb9be1.svg",
+    "static/media/arrow-right.3306c112.svg": "/Reward_store/static/media/arrow-right.3306c112.svg",
+    "static/media/semantic.min.css": "/Reward_store/static/media/outline-icons.ddae9b1b.woff",
+    "static/media/index.css": "/Reward_store/static/media/buy-white.146e127a.svg",
+    "static/media/coin.b8bc711d.svg": "/Reward_store/static/media/coin.b8bc711d.svg",
+    "static/media/header-x1.b6f067c6.png": "/Reward_store/static/media/header-x1.b6f067c6.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.12dfef04.js",
+    "static/css/2.dfea2494.chunk.css",
+    "static/js/2.4b99a15f.chunk.js",
+    "static/css/main.e8efdfac.chunk.css",
+    "static/js/main.7ad7aa81.chunk.js"
+  ]
+}
