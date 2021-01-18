@@ -51,14 +51,14 @@ const Main = () => {
 	const Arrow = () => {
 		if (window.location.pathname === '/Reward_store/') {
 			return (
-				<Link to="/Reward_store/2">
+				<Link to="/2">
 					<img src={ArrowRight} alt="" />
 				</Link>
 			);
 		}
 		if (window.location.pathname === '/Reward_store/2') {
 			return (
-				<Link to="/Reward_store/">
+				<Link to="/">
 					<img src={ArrowLeft} alt="" />
 				</Link>
 			);
