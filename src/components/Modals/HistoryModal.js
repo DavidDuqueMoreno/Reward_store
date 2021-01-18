@@ -17,7 +17,7 @@ const History = (props) => {
 		axios
 			.get('https://coding-challenge-api.aerolab.co/user/history', config)
 			.then((res) => {
-				setHistory(res.data);
+				setHistory(res.data.reverse());
 			})
 			.catch((error) => {
 				console.error(error);
@@ -25,16 +25,6 @@ const History = (props) => {
 	}, []);
 
 	const List = () => {
-		const options = {
-			weekday: 'long',
-			year: 'numeric',
-			month: 'long',
-			day: 'numeric',
-		};
-
-		// var date = new Date(
-		// 	parseInt(Date.parse(document.getElementById('date1').value)) + 104000000
-		// ).toLocaleDateString('en_US', options);
 		return history.map((item) => (
 			<div className="history_item">
 				<img src={item.img.url} alt="" />
