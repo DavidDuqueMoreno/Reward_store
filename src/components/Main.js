@@ -18,6 +18,7 @@ const Main = () => {
 	};
 	const [products, setProducts] = useState([]);
 	const [user, setUser] = useState([]);
+	const [loading, setLoading] = useState(false);
 
 	useEffect(() => {
 		axios
@@ -32,6 +33,7 @@ const Main = () => {
 			.get('https://coding-challenge-api.aerolab.co/user/me', config)
 			.then((res) => {
 				setUser(res.data);
+				setLoading(true);
 			})
 			.catch((error) => {
 				console.error(error);
@@ -132,22 +134,29 @@ const Main = () => {
 		</div>
 	);
 
-	const MissingMoney = (props) => (
-		<div className="item_missing_money">
-			You need {props.cost - user.points}
-			<div className="coin_icon">
-				<img src={Coin} alt="coin icon" />
+	const MissingMoney = (cost) => {
+		var subtraction = '';
+		if (loading === true) {
+			subtraction = cost - user.points;
+		}
+
+		return (
+			<div className="item_missing_money">
+				You need {subtraction}
+				<div className="coin_icon">
+					<img src={Coin} alt="coin icon" />
+				</div>
 			</div>
-		</div>
-	);
+		);
+	};
 
 	const mainItem = () =>
 		products.map((prod) => (
 			<div key={prod._id} className="item_container">
-				{user.points < prod.cost ? (
-					<MissingMoney cost={prod.cost} />
-				) : (
+				{user.points > prod.cost ? (
 					<RedeemModal id={prod._id} cost={prod.cost} img={prod.img.url} />
+				) : (
+					MissingMoney(prod.cost)
 				)}
 				<div className="item_img_container">
 					<img
@@ -163,6 +172,7 @@ const Main = () => {
 				</div>
 			</div>
 		));
+
 	return (
 		<div className="main_container">
 			<div>{mainFilters()}</div>

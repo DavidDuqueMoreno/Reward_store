@@ -26,7 +26,7 @@ const History = (props) => {
 
 	const List = () => {
 		return history.map((item) => (
-			<div className="history_item">
+			<div key={item.createDate} className="history_item">
 				<img src={item.img.url} alt="" />
 				<div>{item.cost} $</div>
 				<div>{item.name}</div>

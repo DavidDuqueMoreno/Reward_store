@@ -1,10 +1,12 @@
 import { Header, Modal } from 'semantic-ui-react';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const RedeemProduct = (props) => {
 	const [open, setOpen] = useState(false);
 	const [response, setResponse] = useState('');
+
+	useEffect(() => {}, [open]);
 
 	const Redeem = (id) => {
 		const config = {
