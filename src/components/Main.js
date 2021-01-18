@@ -16,6 +16,7 @@ const Main = () => {
 				'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDAwZDllMzliNjk4OTAwMTlmNGI3NTMiLCJpYXQiOjE2MTA2Njg1MTV9.DJIRAx-_7ynGRqnK2GVur1VKCpj7i-kLB43IbuN-7g0',
 		},
 	};
+	const [page, setPage] = useState(true);
 	const [products, setProducts] = useState([]);
 	const [user, setUser] = useState([]);
 	const [loading, setLoading] = useState(false);
@@ -49,19 +50,11 @@ const Main = () => {
 		}
 	}
 	const Arrow = () => {
-		if (window.location.pathname === '/Reward_store/') {
-			return (
-				<Link to="/2">
-					<img src={ArrowRight} alt="" />
-				</Link>
-			);
+		if (page) {
+			return <img onClick={setPage(false)} src={ArrowRight} alt="" />;
 		}
-		if (window.location.pathname === '/Reward_store/2') {
-			return (
-				<Link to="/">
-					<img src={ArrowLeft} alt="" />
-				</Link>
-			);
+		if (!page) {
+			return <img onClick={setPage(true)} src={ArrowLeft} alt="" />;
 		}
 	};
 
