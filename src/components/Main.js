@@ -42,10 +42,10 @@ const Main = () => {
 	}, []);
 
 	if (products.length > 16) {
-		if (window.location.pathname === '/Reward_store/') {
+		if (page) {
 			setProducts(products.slice(0, 16));
 		}
-		if (window.location.pathname === '/Reward_store/2') {
+		if (!page) {
 			setProducts(products.slice(16, 32));
 		}
 	}
@@ -88,9 +88,7 @@ const Main = () => {
 		<div>
 			<div className="filters_container">
 				<div className="filters_products">
-					{window.location.pathname === '/'
-						? '16 of 32 products'
-						: '32 of 32 products'}
+					{page ? '16 of 32 products' : '32 of 32 products'}
 				</div>
 				<div className="separator_products"></div>
 				<div className="filters_sort">Sort by:</div>
