@@ -41,22 +41,22 @@ const Main = () => {
 	}, []);
 
 	if (products.length > 16) {
-		if (window.location.pathname === '/') {
+		if (window.location.pathname === '/Reward_store') {
 			setProducts(products.slice(0, 16));
 		}
-		if (window.location.pathname === '/2') {
+		if (window.location.pathname === '/Reward_store/2') {
 			setProducts(products.slice(16, 32));
 		}
 	}
 	const Arrow = () => {
-		if (window.location.pathname === '/') {
+		if (window.location.pathname === '/Reward_store') {
 			return (
 				<Link to="/2">
 					<img src={ArrowRight} alt="" />
 				</Link>
 			);
 		}
-		if (window.location.pathname === '/2') {
+		if (window.location.pathname === '/Reward_store/2') {
 			return (
 				<Link to="/">
 					<img src={ArrowLeft} alt="" />
