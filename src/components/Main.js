@@ -41,7 +41,7 @@ const Main = () => {
 	}, []);
 
 	if (products.length > 16) {
-		if (window.location.pathname === '/Reward_store') {
+		if (window.location.pathname === '/Reward_store/') {
 			setProducts(products.slice(0, 16));
 		}
 		if (window.location.pathname === '/Reward_store/2') {
@@ -49,7 +49,7 @@ const Main = () => {
 		}
 	}
 	const Arrow = () => {
-		if (window.location.pathname === '/Reward_store') {
+		if (window.location.pathname === '/Reward_store/') {
 			return (
 				<Link to="/Reward_store/2">
 					<img src={ArrowRight} alt="" />
@@ -58,7 +58,7 @@ const Main = () => {
 		}
 		if (window.location.pathname === '/Reward_store/2') {
 			return (
-				<Link to="/Reward_store">
+				<Link to="/Reward_store/">
 					<img src={ArrowLeft} alt="" />
 				</Link>
 			);
