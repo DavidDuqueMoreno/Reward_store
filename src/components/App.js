@@ -7,12 +7,12 @@ import Header from './Header';
 import Main from './Main';
 
 const App = () => (
-	<BrowserRouter>
+	<BrowserRouter basename="/Reward_store">
 		<div>
-			<Route exact path="/Reward_store/" component={Header} />
-			<Route exact path="/Reward_store/2" component={Header} />
-			<Route exact path="/Reward_store/" component={Main} />
-			<Route exact path="/Reward_store/2" component={Main} />
+			<Route exact path="/" component={Header} />
+			<Route exact path="/2" component={Header} />
+			<Route exact path="/" component={Main} />
+			<Route exact path="/2" component={Main} />
 		</div>
 	</BrowserRouter>
 );
