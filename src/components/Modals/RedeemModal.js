@@ -48,10 +48,13 @@ const RedeemProduct = ({
 			});
 		setstateofpoints(!stateofpoints);
 	};
+	const closeAndReload = () => {
+		setOpen(false);
+		window.location.reload();
+	};
 
 	return (
 		<Modal
-			onUnmount={() => window.location.reload()}
 			size="mini"
 			closeIcon
 			open={open}
@@ -69,7 +72,7 @@ const RedeemProduct = ({
 					</div>
 				)
 			}
-			onClose={() => setOpen(false)}
+			onClose={() => closeAndReload()}
 			onOpen={() => setOpen(true)}
 		>
 			<Header icon="check" content="Congratulations!" />
