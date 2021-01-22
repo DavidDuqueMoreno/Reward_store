@@ -8,7 +8,6 @@ import FiltersContainer from './FiltersContainer';
 const App = () => (
 	<div>
 		<Header />
-		<FiltersContainer />
 	</div>
 );
 
