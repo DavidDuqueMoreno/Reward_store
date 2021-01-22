@@ -211,6 +211,7 @@ body {
 	opacity: 0.7;
 	color: white;
 	margin: 10px 10px 0 90px;
+	pointer-events: none;
 }
 
 .buy_img {

@@ -1,18 +1,15 @@
 import React from 'react';
 import '../index.css';
 
-import { BrowserRouter, Route } from 'react-router-dom';
 import 'semantic-ui-css/semantic.min.css';
 import Header from './Header';
-import Main from './Main';
+import FiltersContainer from './FiltersContainer';
 
 const App = () => (
-	<BrowserRouter basename="/Reward_store">
-		<div>
-			<Route exact path="/" component={Header} />
-			<Route exact path="/" component={Main} />
-		</div>
-	</BrowserRouter>
+	<div>
+		<Header />
+		<FiltersContainer />
+	</div>
 );
 
 export default App;

@@ -1,4 +1,3 @@
-import React, { useState, useEffect } from 'react';
 import Kite from '../assets/aerolab-logo.svg';
 import Hero from '../assets/header-x1.png';
 import GetCoins from './Modals/GetCoinsModal';

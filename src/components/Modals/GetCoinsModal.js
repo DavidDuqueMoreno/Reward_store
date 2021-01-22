@@ -50,7 +50,7 @@ const GetCoins = () => {
 
 	return (
 		<Modal
-			onUnmount={() => window.location.reload()}
+			// onUnmount={() => window.location.reload()}
 			size="tiny"
 			closeIcon
 			open={open}
