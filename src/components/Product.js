@@ -2,7 +2,7 @@ import RedeemModal from './Modals/RedeemModal';
 
 function Product({ id, points, cost, img, category, name }) {
 	return (
-		<div key={id} className="item_container">
+		<div className="item_container">
 			<RedeemModal points={points} id={id} cost={cost} img={img} />
 			<div className="item_img_container">
 				<img className="item_img" src={img} alt="imagen del producto" />

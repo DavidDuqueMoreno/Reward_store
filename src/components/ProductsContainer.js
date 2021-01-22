@@ -2,7 +2,7 @@ import Product from './Product';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const ProductsContainer = ({ page }) => {
+const ProductsContainer = ({ page, filter }) => {
 	const config = {
 		headers: {
 			'Content-type': 'application/json',
@@ -33,46 +33,35 @@ const ProductsContainer = ({ page }) => {
 			});
 	}, []);
 
-	// const SortByCategory = () => {
-	// 	const order = {
-	// 		Audio: 1,
-	// 		Cameras: 2,
-	// 		Drones: 3,
-	// 		Gaming: 4,
-	// 		Laptops: 5,
-	// 		'Monitors & TV': 6,
-	// 		'PC Accesories': 7,
-	// 		'PC Accessories': 8,
-	// 		'Phone Accessories': 9,
-	// 		Phones: 10,
-	// 		'Smart Home': 11,
-	// 		'Tablets & E-readers': 12,
-	// 	};
-	// 	const list = products.sort((a, b) => order[a.category] - order[b.category]);
-	// 	return list;
-	// };
+	var productsFilters = products
+		? filter === ''
+			? products
+			: filter === 'highest'
+			? products.sort((a, b) => b.cost - a.cost)
+			: filter === 'lowest'
+			? products.sort((a, b) => a.cost - b.cost)
+			: filter === 'category'
+			? products.sort(function (a, b) {
+					if (a.category > b.category) {
+						return 1;
+					}
+					if (a.category < b.category) {
+						return -1;
+					}
+					return 0;
+			  })
+			: []
+		: [];
 
-	// const SortByLowestPrice = () => {
-	// 	const list = products.sort((a, b) => a.cost - b.cost);
-	// 	return list;
-	// };
-
-	// const SortByHighestPrice = () => {
-	// 	const list = products.sort((a, b) => b.cost - a.cost);
-	// 	return list;
-	// };
-
-	console.log(products);
-	console.log(points);
-
-	var productsPage = products
+	var productsPage = productsFilters
 		? page === 'page1'
-			? products.slice(0, 16)
-			: products.slice(16, 32)
+			? productsFilters.slice(0, 16)
+			: productsFilters.slice(16, 32)
 		: [];
 
 	var listProducts = productsPage.map((prod) => (
 		<Product
+			key={prod._id}
 			id={prod._id}
 			points={points}
 			cost={prod.cost}
