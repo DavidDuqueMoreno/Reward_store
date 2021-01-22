@@ -3,7 +3,7 @@ import { Button, Header, Icon, Modal } from 'semantic-ui-react';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const GetCoins = () => {
+const GetCoins = ({ stateofpoints, setstateofpoints }) => {
 	const [points, setPoints] = useState([]);
 	const [addedPoints, setAddedPoints] = useState('');
 	const [open, setOpen] = useState(false);
@@ -26,7 +26,7 @@ const GetCoins = () => {
 			.catch((error) => {
 				console.error(error);
 			});
-	}, []);
+	}, [stateofpoints]);
 
 	const getPoints = (pointsToAdd) => {
 		const body = {
@@ -46,11 +46,12 @@ const GetCoins = () => {
 			.catch((error) => {
 				console.error(error);
 			});
+		setstateofpoints(!stateofpoints);
 	};
 
 	return (
 		<Modal
-			// onUnmount={() => window.location.reload()}
+			onUnmount={() => setAddedPoints('')}
 			size="tiny"
 			closeIcon
 			open={open}

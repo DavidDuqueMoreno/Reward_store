@@ -2,7 +2,14 @@ import ArrowRight from '../assets/icons/arrow-right.svg';
 import ArrowLeft from '../assets/icons/arrow-left.svg';
 import ProductsContainer from './ProductsContainer';
 
-const Filters = ({ page, changepage, filter, changefilter }) => {
+const Filters = ({
+	stateofpoints,
+	setstateofpoints,
+	page,
+	changepage,
+	filter,
+	changefilter,
+}) => {
 	return (
 		<div className="main_container">
 			<div className="filters_container">
@@ -38,7 +45,12 @@ const Filters = ({ page, changepage, filter, changefilter }) => {
 				</div>
 			</div>
 			<hr className="separator_filter" />
-			<ProductsContainer page={page} filter={filter} />
+			<ProductsContainer
+				stateofpoints={stateofpoints}
+				setstateofpoints={setstateofpoints}
+				page={page}
+				filter={filter}
+			/>
 		</div>
 	);
 };

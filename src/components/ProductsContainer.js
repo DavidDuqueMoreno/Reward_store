@@ -2,7 +2,12 @@ import Product from './Product';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const ProductsContainer = ({ page, filter }) => {
+const ProductsContainer = ({
+	page,
+	filter,
+	stateofpoints,
+	setstateofpoints,
+}) => {
 	const config = {
 		headers: {
 			'Content-type': 'application/json',
@@ -31,7 +36,7 @@ const ProductsContainer = ({ page, filter }) => {
 			.catch((error) => {
 				console.error(error);
 			});
-	}, []);
+	}, [stateofpoints]);
 
 	var productsFilters = products
 		? filter === ''
@@ -61,6 +66,8 @@ const ProductsContainer = ({ page, filter }) => {
 
 	var listProducts = productsPage.map((prod) => (
 		<Product
+			stateofpoints={stateofpoints}
+			setstateofpoints={setstateofpoints}
 			key={prod._id}
 			id={prod._id}
 			points={points}

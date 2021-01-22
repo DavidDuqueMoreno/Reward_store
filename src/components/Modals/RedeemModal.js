@@ -3,7 +3,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Coin from '../../assets/icons/coin.svg';
 
-const RedeemProduct = (props) => {
+const RedeemProduct = ({
+	id,
+	img,
+	cost,
+	points,
+	stateofpoints,
+	setstateofpoints,
+}) => {
 	const [open, setOpen] = useState(false);
 	const [response, setResponse] = useState('');
 	const [user, setUser] = useState([]);
@@ -39,23 +46,23 @@ const RedeemProduct = (props) => {
 			.catch((error) => {
 				console.error(error);
 			});
+		setstateofpoints(!stateofpoints);
 	};
 
 	return (
 		<Modal
-			onMount={() => Redeem(props.id)}
-			// onUnmount={() => window.location.reload()}
+			onMount={() => Redeem(id)}
 			size="mini"
 			closeIcon
 			open={open}
 			trigger={
-				props.cost < props.points ? (
+				cost < points ? (
 					<div className="item_button">
 						<img className="buy_img" alt="" />
 					</div>
 				) : (
 					<div className="item_missing_money">
-						You need {props.cost - props.points}
+						You need {cost - points}
 						<div className="coin_icon">
 							<img src={Coin} alt="coin icon" />
 						</div>
@@ -67,10 +74,10 @@ const RedeemProduct = (props) => {
 		>
 			<Header icon="check" content="Congratulations!" />
 			<Modal.Content className="redeem">
-				<p>You successfully redeemed {props.cost} points and got:</p>
+				<p>You successfully redeemed {cost} points and got:</p>
 			</Modal.Content>
 			<Modal.Content className="redeem">
-				<img src={props.img} alt="item redeemed img" />
+				<img src={img} alt="item redeemed img" />
 			</Modal.Content>
 		</Modal>
 	);
