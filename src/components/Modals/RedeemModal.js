@@ -51,13 +51,13 @@ const RedeemProduct = ({
 
 	return (
 		<Modal
-			onMount={() => Redeem(id)}
+			onUnmount={() => window.location.reload()}
 			size="mini"
 			closeIcon
 			open={open}
 			trigger={
 				cost < points ? (
-					<div className="item_button">
+					<div className="item_button" onClick={() => Redeem(id)}>
 						<img className="buy_img" alt="" />
 					</div>
 				) : (

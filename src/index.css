@@ -253,6 +253,21 @@ body {
 	color: #616161;
 }
 
+.item_cost {
+	display: flex;
+	justify-content: flex-end;
+	position: relative;
+	bottom: 35px;
+	color: #3a3a3a;
+	text-align: end;
+	font-size: 18px;
+	align-items: center;
+}
+
+.coin {
+	margin: 5px 0 0 2px;
+	width: 20px;
+}
 .add_buttons {
 	display: flex;
 	justify-content: center;

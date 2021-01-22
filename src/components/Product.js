@@ -1,4 +1,5 @@
 import RedeemModal from './Modals/RedeemModal';
+import Coin from '../assets/icons/coin.svg';
 
 function Product({
 	id,
@@ -27,6 +28,12 @@ function Product({
 			<div className="item_info">
 				<div className="item_category">{category}</div>
 				<div className="item_name">{name}</div>
+				<div className="item_cost">
+					{cost}
+					<div>
+						<img className="coin" src={Coin} alt="" />
+					</div>
+				</div>
 			</div>
 		</div>
 	);
