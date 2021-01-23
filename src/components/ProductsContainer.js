@@ -7,6 +7,8 @@ const ProductsContainer = ({
 	filter,
 	stateofpoints,
 	setstateofpoints,
+	points,
+	setPoints,
 }) => {
 	const config = {
 		headers: {
@@ -17,7 +19,7 @@ const ProductsContainer = ({
 	};
 
 	const [products, setProducts] = useState([]);
-	const [points, setPoints] = useState(0);
+	//const [points, setPoints] = useState(0);
 
 	useEffect(() => {
 		axios
@@ -36,7 +38,7 @@ const ProductsContainer = ({
 			.catch((error) => {
 				console.error(error);
 			});
-	}, [stateofpoints]);
+	}, [points]);
 
 	var productsFilters = products
 		? filter === ''
@@ -70,11 +72,13 @@ const ProductsContainer = ({
 			setstateofpoints={setstateofpoints}
 			key={prod._id}
 			id={prod._id}
-			points={points}
+			//points={points}
 			cost={prod.cost}
 			img={prod.img.url}
 			category={prod.category}
 			name={prod.name}
+			points={points}
+			setPoints={setPoints}
 		/>
 	));
 

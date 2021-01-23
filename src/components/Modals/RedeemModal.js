@@ -8,12 +8,12 @@ const RedeemProduct = ({
 	img,
 	cost,
 	points,
+	setPoints,
 	stateofpoints,
 	setstateofpoints,
 }) => {
 	const [open, setOpen] = useState(false);
 	const [response, setResponse] = useState('');
-	const [user, setUser] = useState([]);
 
 	const config = {
 		headers: {
@@ -22,16 +22,6 @@ const RedeemProduct = ({
 				'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDAwZDllMzliNjk4OTAwMTlmNGI3NTMiLCJpYXQiOjE2MTA2Njg1MTV9.DJIRAx-_7ynGRqnK2GVur1VKCpj7i-kLB43IbuN-7g0',
 		},
 	};
-	useEffect(() => {
-		axios
-			.get('https://coding-challenge-api.aerolab.co/user/me', config)
-			.then((res) => {
-				setUser(res.data.points);
-			})
-			.catch((error) => {
-				console.error(error);
-			});
-	}, [user]);
 
 	const Redeem = (id) => {
 		const body = {
@@ -42,6 +32,7 @@ const RedeemProduct = ({
 			.post('https://coding-challenge-api.aerolab.co/redeem', body, config)
 			.then((res) => {
 				setResponse(res.data);
+				setPoints(points - cost);
 			})
 			.catch((error) => {
 				console.error(error);
@@ -50,7 +41,6 @@ const RedeemProduct = ({
 	};
 	const closeAndReload = () => {
 		setOpen(false);
-		window.location.reload();
 	};
 
 	return (

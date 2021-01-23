@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 
 import Filters from './Filters';
 
-const FiltersContainer = ({ stateofpoints, setstateofpoints }) => {
+const FiltersContainer = ({
+	stateofpoints,
+	setstateofpoints,
+	points,
+	setPoints,
+}) => {
 	const [page, setPage] = useState('page1');
 	const [filter, setFilter] = useState('');
 
@@ -14,6 +19,8 @@ const FiltersContainer = ({ stateofpoints, setstateofpoints }) => {
 			changepage={setPage}
 			filter={filter}
 			changefilter={setFilter}
+			points={points}
+			setPoints={setPoints}
 		/>
 	);
 };

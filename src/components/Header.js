@@ -3,12 +3,12 @@ import Hero from '../assets/header-x1.png';
 import GetCoins from './Modals/GetCoinsModal';
 import History from './Modals/HistoryModal';
 import FiltersContainer from './FiltersContainer';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 
 const Header = () => {
 	const [stateOfPoints, setStateOfPoints] = useState(false);
+	const [points, setPoints] = useState([]);
 
-	console.log(stateOfPoints);
 	return (
 		<>
 			<div className="header">
@@ -17,8 +17,10 @@ const Header = () => {
 					<GetCoins
 						stateofpoints={stateOfPoints}
 						setstateofpoints={setStateOfPoints}
+						points={points}
+						setPoints={setPoints}
 					/>
-					<History />
+					<History points={points} />
 				</div>
 				<div className="header_hero_container">
 					<img className="header_hero_img" src={Hero} alt="hero img" />
@@ -28,6 +30,8 @@ const Header = () => {
 			<FiltersContainer
 				stateofpoints={stateOfPoints}
 				setstateofpoints={setStateOfPoints}
+				points={points}
+				setPoints={setPoints}
 			/>
 		</>
 	);

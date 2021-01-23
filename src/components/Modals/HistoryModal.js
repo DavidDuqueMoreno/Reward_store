@@ -2,7 +2,7 @@ import { Header, Modal } from 'semantic-ui-react';
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-const History = (props) => {
+const History = ({ points }) => {
 	const [open, setOpen] = useState(false);
 	const [history, setHistory] = useState([]);
 
@@ -22,7 +22,7 @@ const History = (props) => {
 			.catch((error) => {
 				console.error(error);
 			});
-	}, []);
+	}, [points]);
 
 	const List = () => {
 		return history.map((item) => (

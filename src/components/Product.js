@@ -3,13 +3,14 @@ import Coin from '../assets/icons/coin.svg';
 
 function Product({
 	id,
-	points,
 	cost,
 	img,
 	category,
 	name,
 	stateofpoints,
 	setstateofpoints,
+	points,
+	setPoints,
 }) {
 	return (
 		<div className="item_container">
@@ -17,6 +18,7 @@ function Product({
 				stateofpoints={stateofpoints}
 				setstateofpoints={setstateofpoints}
 				points={points}
+				setPoints={setPoints}
 				id={id}
 				cost={cost}
 				img={img}

@@ -9,6 +9,8 @@ const Filters = ({
 	changepage,
 	filter,
 	changefilter,
+	points,
+	setPoints,
 }) => {
 	return (
 		<div className="main_container">
@@ -50,6 +52,8 @@ const Filters = ({
 				setstateofpoints={setstateofpoints}
 				page={page}
 				filter={filter}
+				points={points}
+				setPoints={setPoints}
 			/>
 		</div>
 	);
